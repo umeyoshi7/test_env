@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>戦艦ゲーム</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body data-phase="placement">
+  <header class="app-header">
+    <h1>戦艦ゲーム</h1>
+    <p id="status" class="status" aria-live="polite">艦を配置してください</p>
+  </header>
+
+  <main class="app-main">
+
+    <section id="placement-section" class="phase-section">
+      <h2 class="section-title">自陣 (配置)</h2>
+      <div id="placement-board" class="board" role="grid" aria-label="自陣ボード (配置)"></div>
+
+      <div class="fleet-panel">
+        <p class="panel-label">艦隊</p>
+        <ul id="fleet-list" class="fleet-list"></ul>
+      </div>
+
+      <div class="button-row">
+        <button type="button" id="btn-orientation" class="btn">向き切替: 横</button>
+        <button type="button" id="btn-random" class="btn">ランダム配置</button>
+      </div>
+      <div class="button-row">
+        <button type="button" id="btn-reset" class="btn btn-secondary">リセット</button>
+        <button type="button" id="btn-start" class="btn btn-primary" disabled>開始</button>
+      </div>
+    </section>
+
+    <section id="play-section" class="phase-section">
+      <h2 class="section-title">敵陣 (攻撃)</h2>
+      <div id="enemy-board" class="board" role="grid" aria-label="敵陣ボード"></div>
+
+      <h2 class="section-title small">自陣</h2>
+      <div id="own-board" class="board board-small" role="grid" aria-label="自陣ボード"></div>
+
+      <div id="ai-indicator" class="ai-indicator" hidden>CPU 思考中…</div>
+    </section>
+
+    <section id="end-section" class="phase-section end-section">
+      <p id="result-message" class="result-message"></p>
+      <button type="button" id="btn-restart" class="btn btn-primary">もう一度</button>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <small>Vanilla JS · タッチ操作対応</small>
+  </footer>
+</body>
+</html>
